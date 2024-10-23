@@ -1,0 +1,41 @@
+
+# Important Hadoop Installation Commands and Their Purposes
+
+1. hadoop -version
+   - Purpose: Check the version of Hadoop installed on your system to verify if the setup is successful.
+
+2. java -version
+   - Purpose: Check the Java version installed on your system to ensure compatibility with Hadoop.
+
+3. hdfs namenode -format
+   - Purpose: Format the NameNode for HDFS (Hadoop Distributed File System), preparing it for initial use.
+
+4. start-dfs.cmd
+   - Purpose: Start the Hadoop Distributed File System (HDFS) services, including NameNode and DataNode.
+
+5. start-yarn.cmd
+   - Purpose: Start YARN (Yet Another Resource Negotiator), which manages resources for distributed applications in Hadoop.
+
+6. jps
+   - Purpose: List all Java processes running on your system, which helps to check if Hadoop services like NameNode, DataNode, and ResourceManager are running.
+
+7. stop-dfs.cmd
+   - Purpose: Stop the Hadoop Distributed File System services.
+
+8. stop-yarn.cmd
+   - Purpose: Stop YARN services.
+
+9. set JAVA_HOME=C:\Java\jdk-23.0.1
+   - Purpose: Set the Java environment variable to point to the correct JDK installation path.
+
+10. set HADOOP_HOME=C:\Hadoop\hadoop-3.3.0
+    - Purpose: Set the Hadoop environment variable to point to the correct Hadoop installation path.
+
+11. start-all.cmd
+    - Purpose: Start all Hadoop services at once, including HDFS and YARN.
+
+12. C:\Hadoop\hadoop-3.3.0\sbin>jps
+    - Purpose: To verify the Java processes running after starting Hadoop services, ensuring that NameNode and DataNode are working correctly.
+
+These commands are critical for setting up, verifying, and managing Hadoop services during installation and operation.
+
