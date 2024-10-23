@@ -3,6 +3,103 @@ Step one installation :
 	1- install java you have to install JDK in java (the best version is 8 ):
 		a. link  JDK java -> https://www.oracle.com/eg/java/technologies/downloads/#java8-windows
 		b. create a folder called java in local disk C 
-		
 		c. then setup the jdk that you installed setup it in the neew folder it's called java 
-	2- 
+		d. delete folder java from program files from local desk C
+
+	2- install apache hadoop:
+		a. download hadoop from this link https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+		b. extract folder hadoop to local disk C and then called this folder hadoop
+		c. delete folder bin in hadoop 
+		e. put this bin in this link https://drive.google.com/file/d/1nCN_jK7EJF2DmPUUxgOggnvJ6k6tksYz/view in hadoop 
+		
+
+step two create enviroment variables for (hadoop - java) :
+	1- open system enviroment variables from search bar
+	2- click on enviroment variables 
+	3- click on new that down user variables 
+	4- write in variable name HADOOP_HOME and in variable value the path for hadoop bin i think is C:\hadoop\bin because we put it in C  click ok
+	5- write in variable name JAVA_HOME and in variable value the path for java bin i think is C:\java\jdk-1.8\bin because we put it in C click ok
+	6- click on path that in system variables then click on edit 
+	7- click on new and then write the path for hadoop bin and hadoop sbin and java  jdk bin 
+		the path must be -> C:\hadoop\bin     / C:\hadoop\sbin      / C:\java\jdk-1.8\bin 
+	8- click ok in every step you made it and close the enviroment
+	9- select hadoop-env.cmd from C:\hadoop\etc\hadoop
+		open edit and search on line tha have set JAVA_HOME=
+		make this line set JAVA_HOME=C:\java\jdk-1.8
+
+step three make sure that Hadoop and Java are in their path on the device:
+	1- open cmd 
+	2- write hadoop -version 
+		you will have:
+			java version "1.8.0_431"
+			Java(TM) SE Runtime Environment (build 1.8.0_431-b10)
+			Java HotSpot(TM) 64-Bit Server VM (build 25.431-b10, mixed mode)
+	3- write java -version 
+		you will have:
+			java version "1.8.0_431"
+			Java(TM) SE Runtime Environment (build 1.8.0_431-b10)
+			Java HotSpot(TM) 64-Bit Server VM (build 25.431-b10, mixed mode)
+
+
+step four edit the config for some files in hadoop:
+	1- open hadoop from etc in hadoop the path will be C:\hadoop\etc\hadoop
+	2- edit the files called (core-site.xml / hdfs-site.xml / mapred-site.xml / yarn-site.xml) 
+	3- write the next codes in tha files between <property> </property>
+		# For core-site.xml
+			<property>
+			  <name>fs.defaultFS</name>
+			  <value>hdfs://localhost:9000</value>
+			</property>
+		
+		# For hdfs-site.xml or https-site.xml
+			<property>
+			  <name>dfs.replication</name>
+			  <value>1</value>
+			</property><property>
+			  <name>dfs.namenode.name.dir</name>
+			  <value>C:\hadoop\data\namenode</value>
+			</property><property>
+			  <name>dfs.datanode.data.dir</name>
+			  <value>C:\hadoop\data\datanode</value>
+			</property>
+			
+		# For mapred-site.xml
+			<property>
+			  <name>mapreduce.framework.name</name>
+			  <value>yarn</value>
+			</property>
+		
+		# For yarn-site.xml
+			<property>
+			  <name>yarn.nodemanager.aux-services</name>
+			  <value>mapreduce_shuffle</value>
+			</property><property>
+			  <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>
+			  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+			</property>
+
+step five install some tools to avoid problems:
+	1- install MSVCR120.DLL from this link https://www.dll-files.com/msvcr120.dll.html
+		a. extract that in system 32 in local disk C 
+	2- install microsoft visual c++ from this link https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
+
+step six some commands in cmd to start the program :
+	1- open the cmd 
+	2- write hdfs namenode -format 
+	3- write cd hadoop
+	4- write cd sbin 
+	5- write start-dfs.cmd
+		a. you will have two terminals and gui window to allow java click on check box that hae public networks (don't close the 2 terminals
+	6- write jps in cmd to check namenode and datanode
+	7- write start-yarn.cmd you will have two terminals don't close it 
+	8- write jps in cmd to check namenode and datanode and resource manager 
+	9- search in your browrser about http://localhost:9870/
+		a. congratulations  then you will have hadoop
+
+	
+
+
+
+			
+			
