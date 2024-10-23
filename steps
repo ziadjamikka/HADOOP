@@ -1,0 +1,8 @@
+serial steps to install hadoop:
+Step one installation :
+	1- install java you have to install JDK in java (the best version is 8 ):
+		a. link  JDK java -> https://www.oracle.com/eg/java/technologies/downloads/#java8-windows
+		b. create a folder called java in local disk C 
+		
+		c. then setup the jdk that you installed setup it in the neew folder it's called java 
+	2- 
